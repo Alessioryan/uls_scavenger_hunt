@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swahili Sentences</title>
+</head>
+<body>
+<h1>Swahili Sentences</h1>
+
+<!-- Swahili to English translation section -->
+<section>
+    <h2>Swahili to English Translation</h2>
+    <p>Translate the following Swahili phrases to English:</p>
+    <form id="swahiliToEnglishForm">
+        <label for="blank1">wanapika = </label>
+        <input type="text" id="blank1" name="blank1" required><br><br>
+
+        <label for="blank2">niliuliza = </label>
+        <input type="text" id="blank2" name="blank2" required><br><br>
+
+        <label for="blank3">mtakimbia = </label>
+        <input type="text" id="blank3" name="blank3" required><br><br>
+    </form>
+</section>
+
+<!-- English to Swahili translation section -->
+<section>
+    <h2>English to Swahili Translation</h2>
+    <p>Translate the following English phrases to Swahili:</p>
+    <form id="englishToSwahiliForm">
+        <label for="blank4">he/she will see = </label>
+        <input type="text" id="blank4" name="blank4" required><br><br>
+
+        <label for="blank5">you run = </label>
+        <input type="text" id="blank5" name="blank5" required><br><br>
+
+        <label for="blank6">we studied = </label>
+        <input type="text" id="blank6" name="blank6" required><br><br>
+    </form>
+</section>
+
+<button type="button" onclick="checkAnswers()">Check Answers</button>
+
+<p id="result"></p>
+
+<!-- Back button to return to the home page -->
+<a href="index.html">Back to Home</a>
+
+<script>
+    function checkAnswers() {
+        var swahiliToEnglishAnswers = [
+            "they cook",
+            "i asked",
+            "you (all) run"
+        ];
+
+        var englishToSwahiliAnswers = [
+            "ataona",
+            "unakimbia",
+            "tulisoma"
+        ];
+
+        var userSwahiliToEnglishAnswers = [
+            document.getElementById("blank1").value.trim().toLowerCase(),
+            document.getElementById("blank2").value.trim().toLowerCase(),
+            document.getElementById("blank3").value.trim().toLowerCase()
+        ];
+
+        var userEnglishToSwahiliAnswers = [
+            document.getElementById("blank4").value.trim().toLowerCase(),
+            document.getElementById("blank5").value.trim().toLowerCase(),
+            document.getElementById("blank6").value.trim().toLowerCase()
+        ];
+
+        var incorrectSwahiliToEnglishCount = 0;
+        var incorrectEnglishToSwahiliCount = 0;
+
+        for (var i = 0; i < swahiliToEnglishAnswers.length; i++) {
+            if (userSwahiliToEnglishAnswers[i] !== swahiliToEnglishAnswers[i]) {
+                incorrectSwahiliToEnglishCount++;
+            }
+        }
+
+        for (var i = 0; i < englishToSwahiliAnswers.length; i++) {
+            if (userEnglishToSwahiliAnswers[i] !== englishToSwahiliAnswers[i]) {
+                incorrectEnglishToSwahiliCount++;
+            }
+        }
+
+        var resultMessage = "";
+
+        if (incorrectSwahiliToEnglishCount === 0 && incorrectEnglishToSwahiliCount === 0) {
+            resultMessage = "Congratulations! You solved both sections of the puzzle.";
+        } else {
+            if (incorrectSwahiliToEnglishCount > 0) {
+                resultMessage += "In the Swahili to English section, you got " + incorrectSwahiliToEnglishCount + " incorrect answer(s). ";
+            }
+            if (incorrectEnglishToSwahiliCount > 0) {
+                resultMessage += "In the English to Swahili section, you got " + incorrectEnglishToSwahiliCount + " incorrect answer(s). ";
+            }
+            resultMessage += "Please try again.";
+        }
+
+        document.getElementById("result").innerHTML = resultMessage;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Articulating Italian Articles</title>
+</head>
+<body>
+<h1>Articulating Italian Articles</h1>
+<p>Complete the phrases:</p>
+
+<form id="puzzleForm">
+    <input type="text" id="blank1" name="blank1" required>
+    <label for="blank1"> banca</label><br><br>
+
+    <input type="text" id="blank2" name="blank2" required>
+    <label for="blank2"> sforzi</label><br><br>
+
+    <input type="text" id="blank3" name="blank3" required>
+    <label for="blank3"> tappi</label><br><br>
+
+    <input type="text" id="blank4" name="blank4" required>
+    <label for="blank4"> tavolo</label><br><br>
+
+    <input type="text" id="blank5" name="blank5" required>
+    <label for="blank5"> scivolo</label><br><br>
+
+    <input type="text" id="blank6" name="blank6" required>
+    <label for="blank6"> antichità</label><br><br>
+
+    <input type="text" id="blank7" name="blank7" required>
+    <label for="blank7"> bottiglie</label><br><br>
+
+    <input type="text" id="blank8" name="blank8" required>
+    <label for="blank8"> altri</label><br><br>
+
+    <button type="button" onclick="checkAnswers()">Check Answers</button>
+</form>
+
+<p id="result"></p>
+
+<!-- Back button to return to the home page -->
+<a href="index.html">Back to Home</a>
+
+<script>
+    function checkAnswers() {
+        var answers = [
+            "la",
+            "gli",
+            "i",
+            "il",
+            "lo",
+            "l'",
+            "le",
+            "gli"
+        ];
+
+        var userAnswers = [
+            document.getElementById("blank1").value.trim().toLowerCase(),
+            document.getElementById("blank2").value.trim().toLowerCase(),
+            document.getElementById("blank3").value.trim().toLowerCase(),
+            document.getElementById("blank4").value.trim().toLowerCase(),
+            document.getElementById("blank5").value.trim().toLowerCase(),
+            document.getElementById("blank6").value.trim().toLowerCase(),
+            document.getElementById("blank7").value.trim().toLowerCase(),
+            document.getElementById("blank8").value.trim().toLowerCase()
+        ];
+
+        var incorrectCount = 0;
+
+        for (var i = 0; i < answers.length; i++) {
+            if (userAnswers[i] !== answers[i]) {
+                incorrectCount++;
+            }
+        }
+
+        if (incorrectCount === 0) {
+            document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle.";
+        } else {
+            document.getElementById("result").innerHTML = "You got " + incorrectCount + " incorrect answer(s). Please try again.";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Puzzle 5</title>
+</head>
+<body>
+<h1>Puzzle 5</h1>
+<p>Complete the equations:</p>
+
+<form id="puzzleForm">
+    <label for="blank1">八 + 七 = </label>
+    <input type="text" id="blank1" name="blank1" required><br><br>
+
+    <label for="blank2">五 × 九 = </label>
+    <input type="text" id="blank2" name="blank2" required><br><br>
+
+    <label for="blank3">(二十三 + 一) ÷ 四 = </label>
+    <input type="text" id="blank3" name="blank3" required><br><br>
+
+    <label for="blank4">(百 × 十六) − 一 = </label>
+    <input type="text" id="blank4" name="blank4" required><br><br>
+
+    <button type="button" onclick="checkAnswers()">Check Answers</button>
+</form>
+
+<p id="result"></p>
+
+<!-- Back button to return to the home page -->
+<a href="index.html">Back to Home</a>
+
+<script>
+    function checkAnswers() {
+        var answers = [
+            "15",
+            "45",
+            "6",
+            "1599"
+        ];
+
+        var userAnswers = [
+            document.getElementById("blank1").value.trim(),
+            document.getElementById("blank2").value.trim(),
+            document.getElementById("blank3").value.trim(),
+            document.getElementById("blank4").value.trim()
+        ];
+
+        var incorrectCount = 0;
+
+        for (var i = 0; i < answers.length; i++) {
+            if (userAnswers[i] !== answers[i]) {
+                incorrectCount++;
+            }
+        }
+
+        if (incorrectCount === 0) {
+            document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle.";
+        } else {
+            document.getElementById("result").innerHTML = "You got " + incorrectCount + " incorrect answer(s). Please try again.";
+        }
+    }
+</script>
+</body>
+</html>

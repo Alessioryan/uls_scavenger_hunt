@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reading the IPA</title>
+</head>
+<body>
+<h1>Reading the IPA</h1>
+<p>Complete the words:</p>
+
+<form id="puzzleForm">
+    <input type="text" id="blank1" name="blank1" required>
+    <label for="blank1">[fɪltɹ]</label>
+    <br><br>
+
+    <input type="text" id="blank2" name="blank2" required>
+    <label for="blank2">[θɑtfl]</label>
+    <br><br>
+
+    <input type="text" id="blank3" name="blank3" required>
+    <label for="blank3">[ailɪnd]</label>
+    <br><br>
+
+    <input type="text" id="blank4" name="blank4" required>
+    <label for="blank4">[əkweɪɹiəm]</label>
+    <br><br>
+
+    <button type="button" onclick="checkAnswers()">Check Answers</button>
+</form>
+
+<p id="result"></p>
+
+<!-- Back button to return to the home page -->
+<a href="index.html">Back to Home</a>
+
+<script>
+    function checkAnswers() {
+        var answers = [
+            "filter",
+            "thoughtful",
+            "island",
+            "aquarium"
+        ];
+
+        var userAnswers = [
+            document.getElementById("blank1").value.trim().toLowerCase(),
+            document.getElementById("blank2").value.trim().toLowerCase(),
+            document.getElementById("blank3").value.trim().toLowerCase(),
+            document.getElementById("blank4").value.trim().toLowerCase()
+        ];
+
+        var incorrectCount = 0;
+
+        for (var i = 0; i < answers.length; i++) {
+            if (userAnswers[i] !== answers[i]) {
+                incorrectCount++;
+            }
+        }
+
+        if (incorrectCount === 0) {
+            document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle.";
+        } else {
+            document.getElementById("result").innerHTML = "You got " + incorrectCount + " incorrect answer(s). Please try again.";
+        }
+    }
+</script>
+</body>
+</html>
