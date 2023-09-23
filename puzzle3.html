@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Investigate - Linguists’ Friend</title>
 </head>
 <body>
+<h1>Investigate - Linguists’ Friend</h1>
 
+<form id="puzzleForm">
+    <label for="blank1">The Department of Linguistics at the University of Washington shares a building with an unlikely friend. Go to the linguistics building and see if you can find the other department who lives there! <br>
+        For this challenge, it isn’t necessary to enter the building. Feel free to use the internet, Google Maps, a friend, a crow… anything you need to locate the building! <br>
+        Once you’ve found it, scan the QR code and enter the entire title of the department. <br></label>
+    <input type="text" id="blank1" name="blank1" required>
+    <br><br>
+
+    <button type="button" onclick="checkAnswers()">Check Answer</button>
+</form>
+
+<p id="result"></p>
+
+<!-- Back button to return to the home page -->
+<a href="index.html">Back to Home</a>
+
+<script>
+    function checkAnswers() {
+
+        var user_answer = document.getElementById("blank1").value.trim().toLowerCase();
+
+        if (user_answer.includes("aerospace") || user_answer.includes("aeronautics") ) {
+            document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle. The third letter of the passcode is 'l'.";
+        } else {
+            document.getElementById("result").innerHTML = "Not quite! Try again.";
+        }
+    }
+</script>
 </body>
 </html>

@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Investigate - Sociolinguistics</title>
 </head>
 <body>
+<h1>Investigate - Sociolinguistics</h1>
 
+<form id="puzzleForm">
+    <label for="blank1">Many of the other puzzles you’ve completed / will complete today relate to language patterns. But what about how people use language? Or why do some people who speak the same language sound so different? Now we’re talking about Sociolinguistics, the study of how social factors influence language. This subfield is pretty common to stumble across in pop linguistics. Have you taken the New York Times Dialect Quiz? That’s socioling! <br>
+        Go back to Guggenheim and this time, go inside. Because we share the building with another department, only one of the floors is ours. Figure out which floor belongs to the Department of Linguistics. Then use whatever resources you can to figure out which sociolinguist is associated with that floor. Anything is fair game! It is not necessary to leave the first floor to complete this challenge. <br>
+        When you’ve figured it out, scan the QR code and enter just the last name of the linguist. <br>
+        </label>
+    <input type="text" id="blank1" name="blank1" required>
+    <br><br>
+
+    <button type="button" onclick="checkAnswers()">Check Answer</button>
+</form>
+
+<p id="result"></p>
+
+<!-- Back button to return to the home page -->
+<a href="index.html">Back to Home</a>
+
+<script>
+    function checkAnswers() {
+
+        var user_answer = document.getElementById("blank1").value.trim().toLowerCase();
+
+        if (user_answer === "labov") {
+            document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle. The fourth letter of the passcode is 'i'.";
+        } else {
+            document.getElementById("result").innerHTML = "Not quite! Try again.";
+        }
+    }
+</script>
 </body>
 </html>

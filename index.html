@@ -7,16 +7,38 @@
 
 <body>
 
-  <h1>Welcome to the Scavenger Hunt!</h1>
-  <p>Please select a puzzle to solve:</p>
+  <h1>Welcome to the Undergraduate Linguisitcs Society Scavenger Hunt!</h1>
+  <p>Please select a puzzle to solve! If you have any questions, reach out to us on instagram at @uls.uw</p>
   <ul>
-    <li><a href="puzzle1.html">Articulating Italian Articles</a></li>
+    <li><a href="puzzle1.html">The Many Sides of "The"</a></li>
     <li><a href="puzzle2.html">Reading the IPA</a></li>
-    <li><a href="puzzle3.html">Puzzle 3</a></li>
-    <li><a href="puzzle4.html">Puzzle 4</a></li>
+    <li><a href="puzzle3.html">Investigate - Linguists’ Friend (Fully Online)</a></li>
+    <li><a href="puzzle4.html">Investigate - Sociolinguistics (Fully Online)</a></li>
     <li><a href="puzzle5.html">Chinese Counting</a></li>
     <li><a href="puzzle6.html">Swahili Sentences</a></li>
   </ul>
+
+  <br><br><br>
+
+  <label for="final blank">Once you solve all six puzzles, enter the passcode below!</label>
+  <input type="text" id="final blank" name="final blank" required><br><br>
+  <button type="button" onclick="checkAnswers()">Check Answer</button>
+  <p id="result"></p>
+
+  <script>
+    function checkAnswers() {
+
+      var user_answer = document.getElementById("final blank").value.trim().toLowerCase();
+
+      if (user_answer === ("unliso") ) {
+        document.getElementById("result").innerHTML = "Congratulations! You solved all 6 puzzles! <br> " +
+                "If you're completing the puzzles during our Dawg Daze event, come to MGH 234 for some candy! Otherwise, come to our next undergraduate linguistics society meeting for some candy!";
+      } else {
+        document.getElementById("result").innerHTML = "Not quite!";
+      }
+    }
+  </script>
+
 
 </body>
 

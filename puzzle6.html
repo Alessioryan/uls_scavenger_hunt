@@ -18,20 +18,20 @@
         <label for="blank2">niliuliza = </label>
         <input type="text" id="blank2" name="blank2" required><br><br>
 
-        <label for="blank3">mtakimbia = </label>
+        <label for="blank3">utakimbia = </label>
         <input type="text" id="blank3" name="blank3" required><br><br>
     </form>
 </section>
 
 <!-- English to Swahili translation section -->
 <section>
-    <h2>English to Swahili Translation</h2>
+    <h2>(Optional) English to Swahili Translation</h2>
     <p>Translate the following English phrases to Swahili:</p>
     <form id="englishToSwahiliForm">
         <label for="blank4">he/she will see = </label>
         <input type="text" id="blank4" name="blank4" required><br><br>
 
-        <label for="blank5">you run = </label>
+        <label for="blank5">you (all) play = </label>
         <input type="text" id="blank5" name="blank5" required><br><br>
 
         <label for="blank6">we studied = </label>
@@ -46,17 +46,23 @@
 <!-- Back button to return to the home page -->
 <a href="index.html">Back to Home</a>
 
+<br><br>
+
+<!-- Additional message and table -->
+<p id="additionalMessage"></p>
+
+
 <script>
     function checkAnswers() {
         var swahiliToEnglishAnswers = [
             "they cook",
             "i asked",
-            "you (all) run"
+            "you will run"
         ];
 
         var englishToSwahiliAnswers = [
             "ataona",
-            "unakimbia",
+            "mnacheza",
             "tulisoma"
         ];
 
@@ -89,19 +95,32 @@
 
         var resultMessage = "";
 
+
         if (incorrectSwahiliToEnglishCount === 0 && incorrectEnglishToSwahiliCount === 0) {
-            resultMessage = "Congratulations! You solved both sections of the puzzle.";
+            resultMessage = "Congratulations! You solved both sections of the puzzle. The sixth letter of the passcode is 'o'.";
         } else {
-            if (incorrectSwahiliToEnglishCount > 0) {
-                resultMessage += "In the Swahili to English section, you got " + incorrectSwahiliToEnglishCount + " incorrect answer(s). ";
+            if (incorrectSwahiliToEnglishCount === 0){
+                resultMessage = "Congratulations! You solved the puzzle. The sixth letter of the passcode is 'o'."
+                if (incorrectSwahiliToEnglishCount !== 0){
+                    resultMessage += "In the English to Swahili section, you got " + incorrectEnglishToSwahiliCount + " incorrect answer(s).";
+                }
+            } else {
+                resultMessage = "In the Swahili to English section, you got " + incorrectSwahiliToEnglishCount + " incorrect answer(s). ";
+                resultMessage += "Please try again.";
             }
-            if (incorrectEnglishToSwahiliCount > 0) {
-                resultMessage += "In the English to Swahili section, you got " + incorrectEnglishToSwahiliCount + " incorrect answer(s). ";
-            }
-            resultMessage += "Please try again.";
+        }
+
+        var additionalMessage;
+        if (incorrectSwahiliToEnglishCount === 0) {
+            additionalMessage = "Here's an optional explanation of all the components of a Swahili verb! <br>" +
+                "In its most simple form, a Swahili verb is composed of three parts. The subject, the tense, and the verb root. <br>" +
+                "The subject is WHO or WHAT does the action. The letters that can be used are as follows: ni = I, u = you, a = he/she, tu = we, m = you (all), wa = they. <br>" +
+                "The tense is WHEN an action takes place. The letters that can be used are as follows: ta = future, na = present, li = past. <br>" +
+                "The verb root is WHAT ACTION happened. There are many verb roots in Swahili, but in this problem you encountered: ona = see, uliza = ask, cheza = play, kula = eat, kimbia = run, soma = study, pika = cook. <br>"
         }
 
         document.getElementById("result").innerHTML = resultMessage;
+        document.getElementById("additionalTable").innerHTML = additionalMessage;
     }
 </script>
 </body>

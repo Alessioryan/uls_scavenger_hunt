@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Articulating Italian Articles</title>
+    <title>The Many Sides of "The"</title>
 </head>
 <body>
-<h1>Articulating Italian Articles</h1>
+<h1>The Many Sides of "The"</h1>
 <p>Complete the phrases:</p>
 
 <form id="puzzleForm">
@@ -25,13 +25,10 @@
     <label for="blank5"> scivolo</label><br><br>
 
     <input type="text" id="blank6" name="blank6" required>
-    <label for="blank6"> antichità</label><br><br>
+    <label for="blank6"> era</label><br><br>
 
     <input type="text" id="blank7" name="blank7" required>
     <label for="blank7"> bottiglie</label><br><br>
-
-    <input type="text" id="blank8" name="blank8" required>
-    <label for="blank8"> altri</label><br><br>
 
     <button type="button" onclick="checkAnswers()">Check Answers</button>
 </form>
@@ -40,6 +37,13 @@
 
 <!-- Back button to return to the home page -->
 <a href="index.html">Back to Home</a>
+
+<br><br>
+
+<!-- Additional message and table -->
+<p id="additionalMessage"></p>
+<div id="additionalTable"></div>
+
 
 <script>
     function checkAnswers() {
@@ -50,8 +54,7 @@
             "il",
             "lo",
             "l'",
-            "le",
-            "gli"
+            "le"
         ];
 
         var userAnswers = [
@@ -62,7 +65,6 @@
             document.getElementById("blank5").value.trim().toLowerCase(),
             document.getElementById("blank6").value.trim().toLowerCase(),
             document.getElementById("blank7").value.trim().toLowerCase(),
-            document.getElementById("blank8").value.trim().toLowerCase()
         ];
 
         var incorrectCount = 0;
@@ -74,11 +76,42 @@
         }
 
         if (incorrectCount === 0) {
-            document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle.";
+            // Display the original message
+            document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle. The first letter of the passcode is 'u'.";
+
+            // Add an additional message
+            var additionalMessage = "Here's an optional explanation for when we use each Italian article: <br>" +
+                "Italian articles are conditioned on three factors: the gender of the word, the number of the word, and the starting letter(s) of the following word. <br>" +
+                "The gender refers to whether a word is 'masculine' or 'feminine'. Every noun in Italian is assigned one of these two labels, and for non-human nouns, it does not correspond to the 'gender' of the object. All the masculine nouns in this problem end in '-o' in the singular and '-i' in the plural, and all the feminine nouns in this problem end in '-a' or in the singular and '-e' in the plural. <br>" +
+                "Number refers to whether a word is singular (only one of something) or plural (more than one of something). <br>" +
+                "Finally, the article changes depending on whether the following word begins with a vowel, exactly one consonant, or an 's' plus another consonant. <br>" +
+                "A table below has been added showing you all the combinations of the three factors and the article that's used. <br>";
+            document.getElementById("additionalMessage").innerHTML = additionalMessage;
+
+            // Create and display the table
+            var table = '<table border="1">';
+            table += '<tr><th></th><th>masculine singular</th><th>feminine singular</th><th>masculine plural</th><th>feminine plural</th></tr>';
+
+            // Row: word starts with vowel
+            table += '<tr><td>word starts with vowel</td>';
+            table += '<td>l\'</td><td>l\'</td><td>gli</td><td>le</td></tr>';
+
+            // Row: word starts with consonant
+            table += '<tr><td>word starts with consonant</td>';
+            table += '<td>il</td><td>la</td><td>i</td><td>le</td></tr>';
+
+            // Row: word starts with s + consonant
+            table += '<tr><td>word starts with s + consonant</td>';
+            table += '<td>lo</td><td>la</td><td>gli</td><td>le</td></tr>';
+
+            table += '</table>';
+
+            document.getElementById("additionalTable").innerHTML = table;
         } else {
             document.getElementById("result").innerHTML = "You got " + incorrectCount + " incorrect answer(s). Please try again.";
         }
     }
 </script>
+
 </body>
 </html>
