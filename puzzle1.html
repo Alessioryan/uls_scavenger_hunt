@@ -74,6 +74,11 @@
         var incorrectCount = 0;
 
         for (var i = 0; i < answers.length; i++) {
+            if (i === 5) {
+                if (userAnswers[i] === "l'" || userAnswers[i] === "l’"){
+                    continue;
+                }
+            }
             if (userAnswers[i] !== answers[i]) {
                 incorrectCount++;
             }
