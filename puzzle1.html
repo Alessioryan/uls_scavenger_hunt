@@ -40,6 +40,10 @@
 
 <br><br>
 
+<p id="nextClues"></p>
+
+<br><br>
+
 <!-- Additional message and table -->
 <p id="additionalMessage"></p>
 <div id="additionalTable"></div>
@@ -78,6 +82,9 @@
         if (incorrectCount === 0) {
             // Display the original message
             document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle. The first letter of the passcode is 'u'.";
+
+            // Display next steps
+            document.getElementById("nextClues").innerHTML = "There is a clue located on the north side of the Mary Gates Hall near the elevators!"
 
             // Add an additional message
             var additionalMessage = "Here's an optional explanation for when we use each Italian article: <br>" +

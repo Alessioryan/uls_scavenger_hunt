@@ -48,6 +48,10 @@
 
 <br><br>
 
+<p id="nextClues"></p>
+
+<br><br>
+
 <!-- Additional message and table -->
 <p id="additionalMessage"></p>
 
@@ -112,6 +116,9 @@
 
         var additionalMessage;
         if (incorrectSwahiliToEnglishCount === 0) {
+            // Display next steps
+            document.getElementById("nextClues").innerHTML = "There is a clue located on the north side of the Mary Gates Hall near the elevators!"
+
             additionalMessage = "Here's an optional explanation of all the components of a Swahili verb! <br>" +
                 "In its most simple form, a Swahili verb is composed of three parts. The subject, the tense, and the verb root. <br>" +
                 "The subject is WHO or WHAT does the action. The letters that can be used are as follows: ni = I, u = you, a = he/she, tu = we, m = you (all), wa = they. <br>" +

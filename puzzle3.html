@@ -22,6 +22,10 @@
 <!-- Back button to return to the home page -->
 <a href="index.html">Back to Home</a>
 
+<br><br>
+
+<p id="nextClues"></p>
+
 <script>
     function checkAnswers() {
 
@@ -29,6 +33,9 @@
 
         if (user_answer.includes("aerospace") || user_answer.includes("aeronautics") ) {
             document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle. The third letter of the passcode is 'l'.";
+
+            // Display next steps
+            document.getElementById("nextClues").innerHTML = "There is a clue located on the door of room 100E!"
         } else {
             document.getElementById("result").innerHTML = "Not quite! Try again.";
         }

@@ -33,6 +33,10 @@
 <!-- Back button to return to the home page -->
 <a href="index.html">Back to Home</a>
 
+<br><br>
+
+<p id="nextClues"></p>
+
 <script>
     function checkAnswers() {
         var answers = [
@@ -59,6 +63,9 @@
 
         if (incorrectCount === 0) {
             document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle. The second letter of the passcode is 'n'.";
+
+            // Display next steps
+            document.getElementById("nextClues").innerHTML = "There is a clue located on the door of room 200D!"
         } else {
             document.getElementById("result").innerHTML = "You got " + incorrectCount + " incorrect answer(s). Please try again.";
         }

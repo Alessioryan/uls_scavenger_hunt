@@ -29,6 +29,10 @@
 <!-- Back button to return to the home page -->
 <a href="index.html">Back to Home</a>
 
+<br><br>
+
+<p id="nextClues"></p>
+
 <script>
     function checkAnswers() {
         var answers = [
@@ -55,6 +59,9 @@
 
         if (incorrectCount === 0) {
             document.getElementById("result").innerHTML = "Congratulations! You solved the puzzle. The fifth letter of the passcode is 's'.";
+
+            // Display next steps
+            document.getElementById("nextClues").innerHTML = "There is a clue located on the door of room 100E and another clue on the north side of the Mary Gates Hall near the elevators!"
         } else {
             document.getElementById("result").innerHTML = "You got " + incorrectCount + " incorrect answer(s). Please try again.";
         }
